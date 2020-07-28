@@ -1,4 +1,6 @@
 import React from 'react';
+import Faker from 'faker'
+
 import Title from './Title'
 import Gradient from './Gradient'
 import './App.css';
@@ -22,6 +24,10 @@ class App extends React.Component {
     return Math.floor(Math.random() * 360)
   }
 
+  generateName = () => {
+    return `${Faker.company.bsAdjective()} ${Faker.commerce.color()}`
+  }
+
   render(){
     return (
       <div className="App">
@@ -29,10 +35,10 @@ class App extends React.Component {
           <div className='container'>
             <div className='row'>
               <div className='col-sm-6'>
-                <Gradient rotation={this.generateRotation()} colors={this.generateColorList()}/>
+                <Gradient name={this.generateName()} rotation={this.generateRotation()} colors={this.generateColorList()}/>
               </div>
               <div className='col-sm-6'>
-                <Gradient rotation={this.generateRotation()} colors={this.generateColorList()}/>
+                <Gradient name={this.generateName()} rotation={this.generateRotation()} colors={this.generateColorList()}/>
               </div>
             </div>
           </div>

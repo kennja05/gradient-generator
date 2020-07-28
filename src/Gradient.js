@@ -5,15 +5,20 @@ export default class Gradient extends React.Component {
     
     
     render(){
+        const {rotation, colors, name} = this.props
         const Gradient = styled.div`
         height: 500px;
         width: 500px;
         border-radius: 5px;
-        background: linear-gradient(${this.props.rotation}deg, ${this.props.colors[0]}, ${this.props.colors[1]});
+        background: linear-gradient(${rotation}deg, ${colors[0]}, ${colors[1]});
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
         `
         return(
             <div className='container'>
-                <Gradient />
+                <h2>{name}</h2>
+                <Gradient>{`linear-gradient(${rotation}deg, ${colors[0]}, ${colors[1]})`}</Gradient>
             </div>
         )
     }
