@@ -11,12 +11,15 @@ class App extends React.Component {
     const myArr = []
     while (myArr.length < 2){
       let color = '#' + Math.floor(Math.random()*16777215).toString(16)
-      console.log(color.length > 7 ? color : 'no problem')
       if (!myArr.find(x => x === color) && color.length === 7){
         myArr.push(color)
       }
     } 
     return myArr
+  }
+
+  generateRotation = () => {
+    return Math.floor(Math.random() * 360)
   }
 
   render(){
@@ -26,10 +29,10 @@ class App extends React.Component {
           <div className='container'>
             <div className='row'>
               <div className='col-sm-6'>
-                <Gradient colors={this.generateColorList()}/>
+                <Gradient rotation={this.generateRotation()} colors={this.generateColorList()}/>
               </div>
               <div className='col-sm-6'>
-                <Gradient colors={this.generateColorList()}/>
+                <Gradient rotation={this.generateRotation()} colors={this.generateColorList()}/>
               </div>
             </div>
           </div>

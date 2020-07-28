@@ -2,7 +2,10 @@ import React from 'react'
 
 const Title = () => {
     return(
-        <h1 className='display-1 title'>Gradient Generator</h1>
+        <div>
+            <h1 className='display-1 title'>Gradient Generator</h1>
+            <hr className='my-1'></hr>
+        </div>
     )
 }
 
