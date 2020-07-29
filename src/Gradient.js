@@ -4,9 +4,13 @@ export default class Gradient extends React.Component {
     
 
     copyToClipBoard = e => {
-        const copyText = document.getElementById('copy')
-        copyText.select()
+        const el = document.createElement('textarea')
+        el.value = e.target.innerText
+        document.body.appendChild(el)
+        el.select()
         document.execCommand('copy')
+        document.body.removeChild(el)
+        alert('Copied to clipboard')
     }
 
 
@@ -31,8 +35,7 @@ export default class Gradient extends React.Component {
         return(
             <div>
                 <h2>{name}</h2>
-                <Gradient><Span onClick={() => this.copyToClipBoard()}>{`background-image: linear-gradient(${rotation}deg, ${colors[0]}, ${colors[1]})`}</Span></Gradient>
-                <input readOnly hidden id='copy' type='text' value={`background-image: linear-gradient(${rotation}deg, ${colors[0]}, ${colors[1]})`} />
+                <Gradient><Span onClick={(e) => this.copyToClipBoard(e)}>{`background-image: linear-gradient(${rotation}deg, ${colors[0]}, ${colors[1]})`}</Span></Gradient>
             </div>
         )
     }
