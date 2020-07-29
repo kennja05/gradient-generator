@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export default class Gradient extends React.Component {
     
 
-    copyToClipBoard = e => {
+    copyToClipboard = e => {
         const el = document.createElement('textarea')
         el.value = e.target.innerText
         document.body.appendChild(el)
@@ -36,7 +36,11 @@ export default class Gradient extends React.Component {
         return(
             <div>
                 <h2>{name}</h2>
-                <Gradient><Span onClick={(e) => this.copyToClipBoard(e)}>{`background-image: linear-gradient(${rotation}deg, ${colors[0]}, ${colors[1]})`}</Span></Gradient>
+                <Gradient>
+                    <Span onClick={(e) => this.copyToClipboard(e)}>
+                    {`background-image: linear-gradient(${rotation}deg, ${colors[0]}, ${colors[1]})`}
+                    </Span>
+                </Gradient>
             </div>
         )
     }

@@ -44,6 +44,7 @@ class App extends React.Component {
   }
 
   render() {
+    const {leftName, leftColors, leftRotation, rightName, rightColors, rightRotation} = this.state
     const StyledDiv = styled.div`
     height: 100%;
     width: 100%;
@@ -57,10 +58,10 @@ class App extends React.Component {
           <div className='container'>
             <div className='row'>
               <div className='col-lg'>
-                <Gradient name={this.state.leftName} colors={this.state.leftColors} rotation={this.state.leftRotation} />
+                <Gradient name={leftName} colors={leftColors} rotation={leftRotation} />
               </div>
               <div className='col-lg'>
-                <Gradient name={this.state.rightName} colors={this.state.rightColors} rotation={this.state.rightRotation} />
+                <Gradient name={rightName} colors={rightColors} rotation={rightRotation} />
               </div>
             </div>
           </div>
