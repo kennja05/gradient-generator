@@ -3,6 +3,10 @@ import Faker from 'faker'
 
 import Title from './Title'
 import Gradient from './Gradient'
+
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faRedoAlt} from '@fortawesome/free-solid-svg-icons'
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -19,11 +23,10 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    this.generateNameAndRotation()
-    this.generateColorList()
+    this.generateGradient()
   }
 
-  generateColorList = () => {
+  generateGradient = () => {
     const myArr = []
     while (myArr.length < 4){
       let color = '#' + Math.floor(Math.random()*16777215).toString(16)
@@ -31,29 +34,25 @@ class App extends React.Component {
     } 
     this.setState({
       leftColors: myArr.slice(0,2),
-      rightColors: myArr.slice(2)
-    })
-  }
-
-  generateNameAndRotation = () => {
-    this.setState({
-      leftName: `${Faker.company.bsAdjective()} ${Faker.company.catchPhraseNoun()}`, 
+      leftName: `${Faker.company.bsAdjective()}`, 
       leftRotation: Math.floor(Math.random() * 181),
-      rightName: `${Faker.company.bsAdjective()} ${Faker.company.catchPhraseNoun()}`, 
+      rightColors: myArr.slice(2),
+      rightName: `${Faker.company.bsAdjective()}`, 
       rightRotation: Math.floor(Math.random() * 181)
-    }) 
+    })
   }
 
   render(){
     return (
-      <div className="App">
+      <div className="App container">
           <Title />
+          <FontAwesomeIcon onClick={() => this.generateGradient()}size='2x' icon={faRedoAlt} />
           <div className='container'>
             <div className='row'>
-              <div className='col-sm-6'>
+              <div className='col-lg'>
                 <Gradient name={this.state.leftName} colors={this.state.leftColors} rotation={this.state.leftRotation}/>
               </div>
-              <div className='col-sm-6'>
+              <div className='col-lg'>
                 <Gradient name={this.state.rightName} colors={this.state.rightColors} rotation={this.state.rightRotation}/>
               </div>
             </div>

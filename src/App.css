@@ -2,7 +2,8 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items:center ;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-link {
@@ -13,9 +14,6 @@
   font-family: 'Roboto', sans-serif;
 }
 
-#gradient-div{
-  border: 1px solid red;
-  height: 400px;
-  width: 400px;
-  /* background-color: aqua; */
+span:hover{
+  cursor: pointer;
 }
