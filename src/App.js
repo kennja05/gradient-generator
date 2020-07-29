@@ -35,10 +35,10 @@ class App extends React.Component {
     }
     this.setState({
       leftColors: myArr.slice(0, 2),
-      leftName: `${Faker.company.bsAdjective()}`,
+      leftName: `${Faker.company.bsAdjective()} ${Faker.hacker.adjective()}`,
       leftRotation: Math.floor(Math.random() * 181),
       rightColors: myArr.slice(2),
-      rightName: `${Faker.company.bsAdjective()}`,
+      rightName: `${Faker.company.bsAdjective()} ${Faker.hacker.adjective()}`,
       rightRotation: Math.floor(Math.random() * 181)
     })
   }
