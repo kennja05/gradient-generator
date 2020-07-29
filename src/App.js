@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Title from './Title'
 import Gradient from './Gradient'
+import SelectedGradient from './SelectedGradient'
 
 
 
@@ -62,6 +63,11 @@ class App extends React.Component {
               </div>
               <div className='col-lg'>
                 <Gradient name={rightName} colors={rightColors} rotation={rightRotation} />
+              </div>
+            </div>
+            <div className='row'>
+              <div className='col-lg'>
+                <SelectedGradient />
               </div>
             </div>
           </div>

@@ -26,6 +26,7 @@ export default class Gradient extends React.Component {
         background: linear-gradient(${rotation}deg, ${colors[0]}, ${colors[1]});
         justify-content: center;
         flex-direction: column;
+        margin-bottom: 20px;
         `
         const Span = styled.span`
         font-family: "Roboto", sans-serif;
@@ -35,7 +36,7 @@ export default class Gradient extends React.Component {
         `
         return(
             <div>
-                <h2>{name}</h2>
+                <h2>{name ? name : 'Custom'}</h2>
                 <Gradient>
                     <Span onClick={(e) => this.copyToClipboard(e)}>
                     {`background-image: linear-gradient(${rotation}deg, ${colors[0]}, ${colors[1]})`}
