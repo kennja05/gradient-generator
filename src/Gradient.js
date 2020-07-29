@@ -22,6 +22,7 @@ export default class Gradient extends React.Component {
         max-width: 100%;
         border-radius: 5px;
         display: flex;
+        border: 3px groove;
         background: linear-gradient(${rotation}deg, ${colors[0]}, ${colors[1]});
         justify-content: center;
         flex-direction: column;

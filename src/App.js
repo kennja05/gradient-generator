@@ -1,7 +1,7 @@
 import React from 'react';
 import Faker from 'faker'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRedoAlt } from '@fortawesome/free-solid-svg-icons'
+import { faRandom } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -53,7 +53,7 @@ class App extends React.Component {
       <StyledDiv>
         <div className="App container">
           <Title />
-          <FontAwesomeIcon onClick={() => this.generateGradient()} size='2x' icon={faRedoAlt} />
+          <FontAwesomeIcon onClick={() => this.generateGradient()} size='2x' icon={faRandom} />
           <div className='container'>
             <div className='row'>
               <div className='col-lg'>
@@ -66,7 +66,6 @@ class App extends React.Component {
           </div>
         </div>
       </StyledDiv>
-
     );
   }
 }
