@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Gradient from './Gradient'
 import { ChromePicker } from 'react-color'
 import { Form } from 'react-bootstrap'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faPlusCircle, faMinusCircle} from '@fortawesome/free-solid-svg-icons'
 
 export default class SelectedGradient extends React.Component {
 
@@ -23,7 +25,7 @@ export default class SelectedGradient extends React.Component {
         })
     }
 
-    handleRotationChange = (e) => {
+    handleRotationDrag = (e) => {
         this.setState({
             rotation: e.target.value
         })
@@ -41,6 +43,22 @@ export default class SelectedGradient extends React.Component {
         })
     }
 
+    decrementRotation = () => {
+        if (this.state.rotation > 0){
+            this.setState({
+                rotation: this.state.rotation - 1
+            })
+        }
+    }
+
+    incrementRotation = () => {
+        if (this.state.rotation <= 179){
+            this.setState({
+                rotation: this.state.rotation + 1
+            })
+        }
+    }
+
     render(){
         const {startColor, endColor, rotation} = this.state
         const SelectedGradient = styled.div`
@@ -53,8 +71,10 @@ export default class SelectedGradient extends React.Component {
             <div>
             <Form>
                 <Form.Group controlId="formBasicRange">
-                <Form.Label>Gradient Rotation</Form.Label>
-                <Form.Control onChange={this.handleRotationChange} min='0' max='180' type="range" value={rotation}/>
+                <span onClick={this.decrementRotation}><FontAwesomeIcon icon={faMinusCircle} /> </span>
+                <Form.Label>Gradient Rotation </Form.Label>
+                <span onClick={this.incrementRotation}> <FontAwesomeIcon icon={faPlusCircle} /></span>
+                <Form.Control onChange={this.handleRotationDrag} min='0' max='180' type="range" value={rotation}/>
                 </Form.Group>
             </Form>
                 <ChromePicker disableAlpha={true} color={startColor} onChangeComplete={this.handleStartColorChange} />

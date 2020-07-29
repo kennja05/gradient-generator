@@ -61,7 +61,7 @@ class App extends React.Component {
       <StyledDiv>
         <div className="container-fluid">
           <StyledTitle>
-            <h1 className='display-1'>Linear Gradient Generator</h1>
+            <span className='display-1'>Linear Gradient Generator</span>
           </StyledTitle>
           <hr className='my-1' />
           <FontAwesomeIcon onClick={() => this.generateGradient()} size='2x' icon={faRandom} />
