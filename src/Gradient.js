@@ -17,8 +17,8 @@ export default class Gradient extends React.Component {
     render(){
         const {rotation, colors, name} = this.props
         const Gradient = styled.div`
-        height: 480px;
-        width: 480px;
+        height: 520px;
+        width: 520px;
         max-width: 100%;
         border-radius: 5px;
         display: flex;

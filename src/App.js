@@ -53,9 +53,10 @@ class App extends React.Component {
     `
     return (
       <StyledDiv>
-        <div className="App container">
+        <div className="App container-fluid">
           <Title />
           <FontAwesomeIcon onClick={() => this.generateGradient()} size='2x' icon={faRandom} />
+          <button onClick={() => this.generateGradient()} className='sr-only'>Click to get new gradients</button>
           <div className='container'>
             <div className='row'>
               <div className='col-lg'>
