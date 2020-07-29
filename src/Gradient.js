@@ -10,7 +10,7 @@ export default class Gradient extends React.Component {
         el.select()
         document.execCommand('copy')
         document.body.removeChild(el)
-        alert('Copied to clipboard')
+        alert('Copied to clipboard!')
     }
 
 
@@ -33,6 +33,7 @@ export default class Gradient extends React.Component {
         font-size: large; 
         color: white;
         -webkit-text-stroke: 1px black;
+        &:hover{cursor: pointer}
         `
         return(
             <div>

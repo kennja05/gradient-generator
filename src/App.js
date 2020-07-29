@@ -3,10 +3,8 @@ import Faker from 'faker'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRandom } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Title from './Title'
 import Gradient from './Gradient'
 import SelectedGradient from './SelectedGradient'
 
@@ -45,16 +43,27 @@ class App extends React.Component {
   }
 
   render() {
-    const {leftName, leftColors, leftRotation, rightName, rightColors, rightRotation} = this.state
+    const { leftName, leftColors, leftRotation, rightName, rightColors, rightRotation } = this.state
     const StyledDiv = styled.div`
     height: 100%;
     width: 100%;
-    background: linear-gradient(#ffecd2, rgba(255, 255,255,1))
+    background: linear-gradient(#ffecd2, rgba(255, 255,255,1));
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    `
+    const StyledTitle = styled.h1`
+    font-family: 'Roboto', sans-serif;
     `
     return (
       <StyledDiv>
-        <div className="App container-fluid">
-          <Title />
+        <div className="container-fluid">
+          <StyledTitle>
+            <h1 className='display-1'>Linear Gradient Generator</h1>
+          </StyledTitle>
+          <hr className='my-1' />
           <FontAwesomeIcon onClick={() => this.generateGradient()} size='2x' icon={faRandom} />
           <button onClick={() => this.generateGradient()} className='sr-only'>Click to get new gradients</button>
           <div className='container'>
@@ -66,6 +75,7 @@ class App extends React.Component {
                 <Gradient name={rightName} colors={rightColors} rotation={rightRotation} />
               </div>
             </div>
+            <hr className='my-1' />
             <div className='row'>
               <div className='col-lg'>
                 <SelectedGradient />
@@ -73,6 +83,7 @@ class App extends React.Component {
             </div>
           </div>
         </div>
+        <hr className='my-1'></hr>
       </StyledDiv>
     );
   }
