@@ -25,7 +25,7 @@ class App extends React.Component {
   }
 
   generateName = () => {
-    return `${Faker.company.bsAdjective()} ${Faker.commerce.color()}`
+    return `${Faker.company.bsAdjective()} ${Faker.company.catchPhraseNoun()}`
   }
 
   render(){

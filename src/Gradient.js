@@ -15,10 +15,14 @@ export default class Gradient extends React.Component {
         justify-content: center;
         flex-direction: column;
         `
+        const Span = styled.span`
+        font-family: "Roboto", sans-serif;
+        color: white;
+        `
         return(
             <div className='container'>
                 <h2>{name}</h2>
-                <Gradient>{`linear-gradient(${rotation}deg, ${colors[0]}, ${colors[1]})`}</Gradient>
+                <Gradient><Span>{`linear-gradient(${rotation}deg, ${colors[0]}, ${colors[1]})`}</Span></Gradient>
             </div>
         )
     }
