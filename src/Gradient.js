@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 export default class Gradient extends React.Component {
     
-    
+    //        background: linear-gradient(${rotation}deg, ${colors[0]}, ${colors[1]});
+    //{`linear-gradient(${rotation}deg, ${colors[0]}, ${colors[1]})`}
+
     
     render(){
         const {rotation, colors, name} = this.props
@@ -10,8 +12,8 @@ export default class Gradient extends React.Component {
         height: 500px;
         width: 500px;
         border-radius: 5px;
-        background: linear-gradient(${rotation}deg, ${colors[0]}, ${colors[1]});
         display: flex;
+        background: linear-gradient(${rotation}deg, ${colors[0]}, ${colors[1]});
         justify-content: center;
         flex-direction: column;
         `

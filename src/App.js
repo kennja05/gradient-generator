@@ -9,23 +9,39 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
 
+  state = {
+    leftColors: [],
+    leftName: '',
+    leftRotation: 0,
+    rightColors: [],
+    rightName: '',
+    rightRotation: 0
+  }
+
+  componentDidMount(){
+    this.generateNameAndRotation()
+    this.generateColorList()
+  }
+
   generateColorList = () => {
     const myArr = []
-    while (myArr.length < 2){
+    while (myArr.length < 4){
       let color = '#' + Math.floor(Math.random()*16777215).toString(16)
-      if (!myArr.find(x => x === color) && color.length === 7){
-        myArr.push(color)
-      }
+      color.length === 7 && myArr.push(color)
     } 
-    return myArr
+    this.setState({
+      leftColors: myArr.slice(0,2),
+      rightColors: myArr.slice(2)
+    })
   }
 
-  generateRotation = () => {
-    return Math.floor(Math.random() * 360)
-  }
-
-  generateName = () => {
-    return `${Faker.company.bsAdjective()} ${Faker.company.catchPhraseNoun()}`
+  generateNameAndRotation = () => {
+    this.setState({
+      leftName: `${Faker.company.bsAdjective()} ${Faker.company.catchPhraseNoun()}`, 
+      leftRotation: Math.floor(Math.random() * 181),
+      rightName: `${Faker.company.bsAdjective()} ${Faker.company.catchPhraseNoun()}`, 
+      rightRotation: Math.floor(Math.random() * 181)
+    }) 
   }
 
   render(){
@@ -35,10 +51,10 @@ class App extends React.Component {
           <div className='container'>
             <div className='row'>
               <div className='col-sm-6'>
-                <Gradient name={this.generateName()} rotation={this.generateRotation()} colors={this.generateColorList()}/>
+                <Gradient name={this.state.leftName} colors={this.state.leftColors} rotation={this.state.leftRotation}/>
               </div>
               <div className='col-sm-6'>
-                <Gradient name={this.generateName()} rotation={this.generateRotation()} colors={this.generateColorList()}/>
+                <Gradient name={this.state.rightName} colors={this.state.rightColors} rotation={this.state.rightRotation}/>
               </div>
             </div>
           </div>
