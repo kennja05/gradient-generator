@@ -72,19 +72,19 @@ export default class SelectedGradient extends React.Component {
         return(
         <SelectedGradient>
             <div>
-            <Form>
-                <Form.Group controlId="formBasicRange">
-                <StyledSpan onClick={this.decrementRotation}><FontAwesomeIcon icon={faMinusCircle} /> </StyledSpan>
-                <Form.Label>Gradient Rotation </Form.Label>
-                <StyledSpan onClick={this.incrementRotation}> <FontAwesomeIcon icon={faPlusCircle} /></StyledSpan>
-                <Form.Control onChange={this.handleRotationDrag} min='0' max='180' type="range" value={rotation}/>
-                </Form.Group>
-            </Form>
+                <Form>
+                    <Form.Group controlId="formBasicRange">
+                    <StyledSpan onClick={this.decrementRotation}><FontAwesomeIcon icon={faMinusCircle} /> </StyledSpan>
+                    <Form.Label>Gradient Rotation </Form.Label>
+                    <StyledSpan onClick={this.incrementRotation}> <FontAwesomeIcon icon={faPlusCircle} /></StyledSpan>
+                    <Form.Control onChange={this.handleRotationDrag} min='0' max='180' type="range" value={rotation}/>
+                    </Form.Group>
+                </Form>
                 <ChromePicker disableAlpha={true} color={startColor} onChangeComplete={this.handleStartColorChange} />
             </div>
             <Gradient rotation={this.state.rotation} colors={[startColor, endColor]} />
             <div>
-                <ChromePicker disableAlpha={true} color={endColor} onChangeComplete={this.handleEndColorChange} />
+                <ChromePicker disableAlpha={true} color={endColor} onChange={this.handleEndColorChange} />
             </div>
         </SelectedGradient>
         )
