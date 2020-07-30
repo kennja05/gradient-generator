@@ -57,6 +57,9 @@ class App extends React.Component {
     const StyledTitle = styled.h1`
     font-family: 'Roboto', sans-serif;
     `
+    const StyledSpan = styled.span`
+    &:hover{cursor: pointer}
+    `
     return (
       <StyledDiv>
         <div className="container-fluid">
@@ -64,7 +67,9 @@ class App extends React.Component {
             <span className='display-1'>Linear Gradient Generator</span>
           </StyledTitle>
           <hr className='my-1' />
-          <FontAwesomeIcon onClick={() => this.generateGradient()} size='2x' icon={faRandom} />
+          <StyledSpan>
+            <FontAwesomeIcon onClick={() => this.generateGradient()} size='2x' icon={faRandom} />
+          </StyledSpan>
           <button onClick={() => this.generateGradient()} className='sr-only'>Click to get new gradients</button>
           <div className='container'>
             <div className='row'>

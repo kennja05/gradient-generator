@@ -46,7 +46,7 @@ export default class SelectedGradient extends React.Component {
     decrementRotation = () => {
         if (this.state.rotation > 0){
             this.setState({
-                rotation: this.state.rotation - 1
+                rotation: parseInt(this.state.rotation) - 1
             })
         }
     }
@@ -54,7 +54,7 @@ export default class SelectedGradient extends React.Component {
     incrementRotation = () => {
         if (this.state.rotation <= 179){
             this.setState({
-                rotation: this.state.rotation + 1
+                rotation: parseInt(this.state.rotation) + 1
             })
         }
     }
@@ -66,14 +66,17 @@ export default class SelectedGradient extends React.Component {
         align-items: center;
         justify-content: space-around;
         `
+        const StyledSpan = styled.span`
+        &:hover{cursor: pointer; color: blue}
+        `
         return(
         <SelectedGradient>
             <div>
             <Form>
                 <Form.Group controlId="formBasicRange">
-                <span onClick={this.decrementRotation}><FontAwesomeIcon icon={faMinusCircle} /> </span>
+                <StyledSpan onClick={this.decrementRotation}><FontAwesomeIcon icon={faMinusCircle} /> </StyledSpan>
                 <Form.Label>Gradient Rotation </Form.Label>
-                <span onClick={this.incrementRotation}> <FontAwesomeIcon icon={faPlusCircle} /></span>
+                <StyledSpan onClick={this.incrementRotation}> <FontAwesomeIcon icon={faPlusCircle} /></StyledSpan>
                 <Form.Control onChange={this.handleRotationDrag} min='0' max='180' type="range" value={rotation}/>
                 </Form.Group>
             </Form>
