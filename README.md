@@ -3,7 +3,7 @@ Linear Gradient Generator
 
 **Background**
 
-Linear Gradient is a CSS function which [creates an image consisting of a progressive transition between two or more colors along a straight line. Its result is an object of the <gradient> data type, which is a special kind of <image>.](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient) There are essentially countless variations of color gradients that can be created using this technique - most random color combinations will not look very good, but occasionally we can stumble upon a random color combination that happens to look good together. 
+Linear Gradient is a CSS function which [creates an image consisting of a progressive transition between two or more colors along a straight line. Its result is an object of the gradient data type, which is a special kind of image.](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient) There are essentially countless variations of color gradients that can be created using this technique - most random color combinations will not look very good, but occasionally we can stumble upon a random color combination that happens to look good together. 
   
 **Usage**
 
